@@ -14,7 +14,7 @@
     "eslint": "eslint src",
     "prettier": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
-    "commitlint": "commitlint --config .commitlint.config.cjs -e -V",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "updater": "node scripts/updater.mjs",
@@ -43,6 +43,7 @@
     "@actions/github": "^6.0.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
     "@eslint/js": "^9.3.0",
     "@iconify/json": "^2.2.212",
     "@tauri-apps/cli": "2.0.0-beta.17",
@@ -54,6 +55,7 @@
     "eslint-plugin-vue": "^9.26.0",
     "globals": "^15.3.0",
     "husky": "8.0.3",
+    "inquirer": "9",
     "internal-ip": "^7.0.0",
     "less": "^4.2.0",
     "lint-staged": "^15.2.2",
@@ -79,7 +81,8 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "@commitlint/cz-commitlint"
     }
   }
 }
+
