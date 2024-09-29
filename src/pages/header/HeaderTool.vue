@@ -33,8 +33,11 @@ async function onSetGitUser() {
 </script>
 <template>
   <div flex-center mr5 space-x-2>
+    <!-- 用户登录 -->
     <span class="op-hover i-ic-outline-person" @click="showModal = true" />
+    <!-- 切换主题颜色 -->
     <span class="op-hover hover:op100" i="material-symbols-nightlight-outline dark:material-symbols-light-mode-outline" @click="onChangeTheme" />
+    <!-- 登录弹窗 -->
     <n-modal v-model:show="showModal" class="w-150" preset="card" title="Git User" size="huge" :bordered="false">
       <n-form :model="form" :label-width="100" label-placement="left">
         <n-form-item label="Username" path="username">

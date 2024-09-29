@@ -82,6 +82,7 @@ async function onSelect(key: string) {
     <div class="p4">
       <n-collapse :default-expanded-names="[1, 2, 3, 4]">
         <n-collapse-item :name="1">
+          <!-- 项目名称 -->
           <template #header>
             <div class="flex-between-center w-full">
               <div>
@@ -92,7 +93,7 @@ async function onSelect(key: string) {
               </n-dropdown>
             </div>
           </template>
-
+          <!-- 提交输入框 -->
           <n-space vertical>
             <n-input v-model:value="gitStore.commitMessage" placeholder="Message" />
             <n-button secondary block :loading="gitStore.loading" @click="onClickGit">
@@ -103,6 +104,7 @@ async function onSelect(key: string) {
             </n-button>
           </n-space>
         </n-collapse-item>
+        <!-- 代码暂存区 -->
         <n-collapse-item :name="2">
           <template #header>
             <div class="flex-between-center w-full">
@@ -112,6 +114,7 @@ async function onSelect(key: string) {
           </template>
           <GitChangeFiles stage="staged" />
         </n-collapse-item>
+        <!-- 代码修改记录 -->
         <n-collapse-item :name="3">
           <template #header>
             <div class="flex-between-center w-full">
@@ -124,6 +127,7 @@ async function onSelect(key: string) {
           </template>
           <GitChangeFiles stage="unstage" />
         </n-collapse-item>
+        <!-- 代码提交记录 -->
         <n-collapse-item :name="4" title="Commits">
           <GitCommitLogs />
         </n-collapse-item>

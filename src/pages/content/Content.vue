@@ -13,7 +13,9 @@ async function onSaveFile() {
 
 <template>
   <n-layout h-full>
+    <!-- 文件导航栏 -->
     <FileTabs />
+    <!-- 编辑器 -->
     <n-layout style="height: calc(100% - 47px)">
       <Editor v-show="isShowEditor" v-model="projectStore.fileInfo.content" :filepath="projectStore.fileInfo.path" @save="onSaveFile" />
     </n-layout>

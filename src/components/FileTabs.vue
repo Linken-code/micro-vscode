@@ -35,10 +35,12 @@ function onClickNotSaveFile() {
 </script>
 <template>
   <n-tabs v-model:value="projectStore.selectFileTab" type="card" closable size="small" @update-value="onClickFileTab" @close="onCloseFileTab">
+    <!-- 文件列表 -->
     <n-tab-pane v-for="tab in projectStore.fileTabs" :key="tab.value" :name="tab.value">
       <template #tab>
         <div style="display: flex; align-items: center">
           <span style="margin-right: 5px">{{ tab.label }}</span>
+          <!-- 文件更新标记 -->
           <template v-if="modifiedFiles.has(tab.value)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
               <path fill="currentColor" d="M12 7a5 5 0 1 1-4.995 5.217L7 12l.005-.217A5 5 0 0 1 12 7" />
@@ -48,7 +50,7 @@ function onClickNotSaveFile() {
       </template>
     </n-tab-pane>
   </n-tabs>
-
+  <!-- 文件未保存的提示弹窗 -->
   <n-modal v-model:show="showModal" preset="dialog" type="warning" title="Dialog" :close-on-esc="false">
     <template #header>
       <div>Do you want to save the changes you made to {{ fileName }}?</div>

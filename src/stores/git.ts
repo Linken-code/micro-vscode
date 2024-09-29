@@ -13,7 +13,7 @@ export const useGitStore = defineStore("useGitStore", () => {
   watch([() => projectStore.selectProjectName, () => projectStore.fileChangedCount], updateChangedFiles, {
     immediate: true,
   });
-
+  //通过缓存状态获取文件
   function getChangeFilesByStageType(stage: GitStageType) {
     return changedFiles.value.filter((f) => stage === f.stage);
   }

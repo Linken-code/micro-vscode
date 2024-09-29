@@ -328,7 +328,7 @@ pub fn git_diff_commit(repo_path: &str, commit: &str) -> Result<String, Error> {
 
     // 输出差异
     let mut diff_content = String::new();
-    diff.print(git2::DiffFormat::Patch, |delta, _hunk, line| {
+    diff.print(git2::DiffFormat::Patch, |_delta, _hunk, line| {
         let line_str = String::from_utf8_lossy(line.content()).to_string();
         println!("{}", line_str);
 

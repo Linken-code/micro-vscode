@@ -35,7 +35,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
   const selectFileTab = ref("");
   const modifiedFiles = ref<Set<string>>(new Set());
   const fileChangedCount = ref(0);
-
+  //监听当前选择的项目
   watch(selectProjectName, async (name) => {
     const data = await getProjectFiles(name);
     fileMenuOptions.value = handleFileMenu(data, name) as any[];
@@ -43,7 +43,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     fileTabs.value = [];
     clearFileContent();
   });
-
+  //监听当前文件内容
   watch(
     () => fileInfo.content,
     (newValue) => {
@@ -60,7 +60,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     },
     { immediate: true, deep: true }
   );
-
+  //获取项目文件
   async function getProjectFiles(projectName: string) {
     const { status, data } = await createInvoke<string[]>("get_project_files", {
       name: projectName,
@@ -69,7 +69,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     if (status === "ok") return data;
     else return [];
   }
-
+  //获取项目列表
   async function getProjectList() {
     const { status, data } = await createInvoke<string[]>("get_projects");
 
@@ -82,7 +82,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     fileInfo.content = "";
     fileInfo.path = "";
   }
-
+  //获取文件内容
   async function getFileContent(path: string) {
     let data = "";
 
@@ -105,7 +105,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     fileInfo.content = data;
     fileInfo.path = path;
   }
-
+  //保存当前文件
   async function saveCurrentFile() {
     if (modifiedFiles.value.has(fileInfo.path)) {
       const { status } = await createInvoke("write_file", {
@@ -120,7 +120,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
       }
     }
   }
-
+  //不保存文件
   function notSaveCurrentFile() {
     modifiedFiles.value.delete(fileInfo.path);
 
@@ -128,7 +128,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
       FileContentChangeMap.delete(fileInfo.path);
     }
   }
-
+  //保存全部文件
   function saveAllFile() {
     const list = [...modifiedFiles.value]
       .filter((path) => FileContentChangeMap.has(path))
@@ -146,7 +146,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
       modifiedFiles.value.clear();
     });
   }
-
+  //新增文件标签栏
   function addFileTab(value: string) {
     if (value && fileTabs.value.findIndex((item) => item.value === value) === -1) {
       const label = value.split("/").pop() || value;
@@ -154,7 +154,7 @@ export const useProjectStore = defineStore("useProjectStore", () => {
     }
     selectFileTab.value = value;
   }
-
+  //关闭标签栏
   function closeFileTab(value: string) {
     const index = fileTabs.value.findIndex((item) => item.value === value);
     if (index === -1) return;
