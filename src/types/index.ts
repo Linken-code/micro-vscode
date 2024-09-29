@@ -1,7 +1,7 @@
-import type { MenuOption } from "naive-ui";
+import type { TreeOption } from "naive-ui";
 import { GitStatus } from "~/constants/enums";
 
-export type MenuItem = MenuOption & {
+export type MenuItem = TreeOption & {
   type: MenuType;
   open: boolean;
   children?: MenuItem[];

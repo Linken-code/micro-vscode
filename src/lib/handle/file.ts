@@ -8,7 +8,7 @@ export function createMenuItem({ name, path, key }: { name: string; path: string
     key,
     type,
     open: false,
-    icon: handleIcon(type, name),
+    prefix: handleIcon(type, name),
   };
 }
 
