@@ -1,5 +1,9 @@
 # Updater Log
 
+## v0.0.3
+
+- refactor: 重构左侧文件树列表
+
 ## v0.0.2
 
 - feat: 新增 rust 代码格式化文件

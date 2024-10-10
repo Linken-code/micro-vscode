@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useProjectStore } from "~/stores/project";
-import type { TreeOverrideNodeClickBehaviorReturn } from "naive-ui";
+import type { TreeOverrideNodeClickBehaviorReturn, TreeOption } from "naive-ui";
 const projectStore = useProjectStore();
 const expandedKeys = ref<string[]>([]);
-import type { TreeOption } from "naive-ui";
+
 watch(
   () => projectStore.selectProjectName,
   () => {
@@ -55,7 +55,7 @@ function onSaveFile() {
       <div bg-hover title="New File" i="icon-park-outline-file-addition-one" />
       <div bg-hover title="New Folder" i="codicon-new-folder" />
       <div bg-hover title="Save All" i="codicon-save-all" @click="onSaveFileAll" />
-      <div bg-hover title="Save All" i="codicon-save" @click="onSaveFile" />
+      <div bg-hover title="Save File" i="codicon-save" @click="onSaveFile" />
     </n-layout-header>
     <!-- 文件列表树 -->
     <n-tree
