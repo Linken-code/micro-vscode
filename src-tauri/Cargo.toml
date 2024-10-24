@@ -12,16 +12,15 @@ name = "micro_vscode_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.0.1", features = [] }
+tauri-build = { version = "2.0.2", features = [] }
 
 [dependencies]
-tauri = { version = "2.0.2", features = [] }
-serde = { version = "1.0.208", features = ["derive"] }
-serde_json = "1.0.125"
+tauri = { version = "2.0.6", features = [] }
+serde = { version = "1.0.213", features = ["derive"] }
+serde_json = "1.0.132"
 git2 = "0.19.0"
-dotenv = "0.15.0"
-tauri-plugin-shell = "2.0.1"
-tauri-plugin-fs = "2.0.1"
+tauri-plugin-shell = "2.0.2"
+tauri-plugin-fs = "2.0.3"
 tauri-plugin-updater = "2.0.2"
 
 [features]

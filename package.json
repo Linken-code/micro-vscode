@@ -23,10 +23,10 @@
   "dependencies": {
     "@shikijs/core": "^1.21.0",
     "@shikijs/monaco": "^1.21.0",
-    "@tauri-apps/api": "2.0.2",
-    "@tauri-apps/plugin-dialog": "2.0.0",
-    "@tauri-apps/plugin-fs": "2.0.0",
-    "@tauri-apps/plugin-shell": "2.0.0",
+    "@tauri-apps/api": "^2.0.3",
+    "@tauri-apps/plugin-dialog": "^2.0.1",
+    "@tauri-apps/plugin-fs": "^2.0.1",
+    "@tauri-apps/plugin-shell": "^2.0.1",
     "@volar/monaco": "^2.4.5",
     "@vueuse/core": "^11.1.0",
     "dayjs": "^1.11.13",
@@ -46,7 +46,7 @@
     "@commitlint/cz-commitlint": "^19.4.0",
     "@eslint/js": "^9.9.0",
     "@iconify/json": "^2.2.239",
-    "@tauri-apps/cli": "2.0.2",
+    "@tauri-apps/cli": "^2.0.4",
     "@types/node": "^20.16.1",
     "@vitejs/plugin-vue": "^5.1.2",
     "commitizen": "^4.3.0",
@@ -73,11 +73,11 @@
     "stylelint-order": "^6.0.4",
     "typescript": "5.4.5",
     "typescript-eslint": "^7.18.0",
-    "unocss": "^0.58.9",
-    "unplugin-auto-import": "^0.17.8",
-    "unplugin-vue-components": "^0.26.0",
+    "unocss": "^0.63.6",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.2",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^2.1.6"
   },
   "config": {
     "commitizen": {
